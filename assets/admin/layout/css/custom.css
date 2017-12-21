@@ -1,0 +1,36 @@
+
+.p-1{
+	padding:1rem!important;
+}
+.p-1{
+	padding:2rem!important;
+}
+.p-3{
+	padding:3rem!important;
+}
+label.error {
+    background-color: #f2dede;
+    border: 1px solid #ebcccc;
+    color: #a94442;
+    padding: 2px 6px;
+    display: inline-block;
+    margin-top: 10px;
+}
+label.error.valid {
+    display: none!important;
+} 
+.page-logo h3 {
+    margin: 9px 0px 0px;
+    color: #fff;
+    font-weight: normal;
+}
+.page-logo a {
+	text-decoration:none!important;
+}
+ul.page-sidebar-menu li span {
+    font-weight: normal;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle > img {
+    height: 29px;
+    width: 29px;
+}
