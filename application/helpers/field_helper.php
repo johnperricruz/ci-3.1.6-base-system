@@ -14,4 +14,9 @@
 			'Admin' => 'admin'
 		);
 	}
+	function actions(){
+		return array(
+			'Delete' => 'Delete'
+		);
+	}	
 		

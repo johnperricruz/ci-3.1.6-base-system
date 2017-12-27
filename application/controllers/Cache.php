@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Cache extends CI_Controller {
 	
-    function __construct(){ 
+    function __construct(){
         parent::__construct(); 
 		
 		//Redirect to user accounts
@@ -25,3 +25,4 @@ class Cache extends CI_Controller {
 		// redirect(base_url());
 	}   
 }
+ 

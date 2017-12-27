@@ -37,7 +37,6 @@
 		return true;
 	}
 	
-	
 	function debug($var){
 		die('<pre>' . var_dump($var) . '</pre>');
 	} 

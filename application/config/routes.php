@@ -93,6 +93,7 @@ $route['logout'] = 'logout/destroy';
 	$route['admin/user/update/avatar'] = 'admin/processUpdateUserAvatar';
 	$route['admin/user/update/password'] = 'admin/processUpdateUserPassword';
 	$route['admin/user/update/username'] = 'admin/processUpdateUserUsername';
+	$route['admin/user/delete'] = 'admin/processDeleteUserInfo';
 	
 	#Settings
 	$route['admin/settings'] = 'admin/settings';

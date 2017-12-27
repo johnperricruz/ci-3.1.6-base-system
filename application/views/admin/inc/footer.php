@@ -46,9 +46,26 @@
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 jQuery(document).ready(function() {    
-   Metronic.init(); // init metronic core componets
-   Layout.init(); // init layout
-   QuickSidebar.init(); // init quick sidebar
+	Metronic.init(); // init metronic core componets
+	Layout.init(); // init layout
+	QuickSidebar.init(); // init quick sidebar
+   
+	//Check All
+	$("input#check_all").click(function(){
+		$('input:checkbox').not(this).prop('checked', this.checked);
+	});
+	//Confirm on delete
+	$("#confirm").click(function(){
+		var count = $("[type='checkbox']:checked").length;
+		if(count < 1){
+			alert('You must select at least 1 user.');
+		}else{
+			var conf = confirm("Are you sure? this action can not be un done.");
+			if(conf){
+				$(this).closest('form').submit();
+			}
+		}
+	});
 });
 </script>
 <!-- END JAVASCRIPTS -->

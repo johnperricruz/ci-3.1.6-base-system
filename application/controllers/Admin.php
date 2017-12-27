@@ -291,6 +291,24 @@ class Admin extends CI_Controller {
 		}
 		redirect($this->agent->referrer());
 	}
+	public function processDeleteUserInfo(){
+		post_request(); //Mandatory for POST Routes
+		$pid = $this->input->post('pid',true);
+		if(count($pid) < 1){
+			$this->session->set_flashdata('danger', 'You must select at least 1 user.');
+			redirect($this->agent->referrer());
+		}
+		foreach($pid as $id){
+			$response['info']  = $this->DeleteData->DeleteUserViaID($id);
+			$response['login'] = $this->DeleteData->DeleteLoginViaID($id);
+		}
+		if($response){
+			$this->session->set_flashdata('success', 'User deleted successfully');
+		}else{
+			$this->session->set_flashdata('danger', 'Can not delete user.');
+		}		
+		redirect($this->agent->referrer());
+	}
 	
 	#Settings
 	public function settings(){
@@ -310,9 +328,8 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('success', 'Settings updated successfully.');
 		}else{
 			$this->session->set_flashdata('danger', 'Can not update settings.');
-		}
+		} 
 		redirect($this->agent->referrer());		
 	}
-	
 
 }

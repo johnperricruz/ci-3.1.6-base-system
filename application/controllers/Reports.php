@@ -40,4 +40,5 @@ class Reports extends CI_Controller {
 		$this->pdf->Write(5, 'Some sample text');
 		$this->pdf->Output('PDF_Filename', 'I');		
 	}
+	
 }

@@ -3,9 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ReadData extends CI_Model {
 	
-	protected $settings = 'settings';
-	protected $logins   = 'logins';
-	protected $users    = 'users';
+	protected $settings     = 'settings';
+	protected $logins       = 'logins';
+	protected $users        = 'users';
+	protected $notification = 'notification';
 	protected $query;
 	
 	//Free Memory Allocation
@@ -46,7 +47,7 @@ class ReadData extends CI_Model {
 		$this->db->where('a.remember_token',$remember_token);
 		$this->query = $this->db->get();
 		return $this->query->row();
-	}	
+	}
 	public function getKeyViaEmail($email){
 		$this->db->select('b.key');
 		$this->db->from($this->users.' as a');
@@ -54,8 +55,7 @@ class ReadData extends CI_Model {
 		$this->db->where('a.email_address',$email);
 		$this->query = $this->db->get();
 		return $this->query->row();
-	}	
-	
+	}
 	public function getAllUsers(){
 		$this->db->select('*');
 		$this->db->from($this->users.' as a');
@@ -80,7 +80,7 @@ class ReadData extends CI_Model {
 		$this->db->where('b.password',$password);
 		$this->query = $this->db->get();
 		return $this->query->row();
-	}	
+	}
 	public function checkEmail($email,$pid){
 		$this->db->from($this->users);
 		$this->db->where('email_address',$email);
@@ -93,7 +93,7 @@ class ReadData extends CI_Model {
 		$this->db->where('email_address',$email);
 		$this->query = $this->db->get();
 		return $this->query->num_rows();
-	}	
+	}
 	
 	#Settings
 	public function getSettingsViaKey($meta_key){
@@ -105,6 +105,16 @@ class ReadData extends CI_Model {
 	}
 	public function getAllSettings(){
 		$this->query = $this->db->get($this->settings);
+		return $this->query->result();
+	}
+	
+	#Notification
+	public function getNotificationPerUser($id){
+		$this->db->select('*');
+		$this->db->from($this->notification);
+		$this->db->where('personal_info_id',$id);
+		$this->db->order_by("time_stamp", "asc");
+		$this->query = $this->db->get();
 		return $this->query->result();
 	}
 	
